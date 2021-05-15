@@ -4,7 +4,9 @@ const theme = {
         textSecondary: '#586069',
         primary: '#0366d6',
         appBarBg: '#24292e',
-        appBarText: '#FFFFFF'
+        appBarText: '#FFFFFF',
+        languageBadgeText: '#FFFFFF',
+        languageBadgeBg: '#4169E1'
     },
     fontSizes: {
         body: 14,

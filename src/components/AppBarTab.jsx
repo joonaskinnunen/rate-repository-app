@@ -4,7 +4,8 @@ import theme from '../theme';
 import Text from './Text';
 
 const styles = StyleSheet.create({
-    tab: {
+    container: {
+        display: 'flex',
         padding: 20
     },
     text: {
@@ -15,7 +16,7 @@ const styles = StyleSheet.create({
 const AppBarTab = ({ title }) => {
     return (
         <Pressable>
-            <View style={styles.tab}>
+            <View style={styles.container}>
                 <Text style={styles.text} fontWeight="bold">{title}</Text>
             </View>
         </Pressable>
