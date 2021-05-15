@@ -2,6 +2,7 @@ import React from 'react';
 import { View, StyleSheet, Pressable } from 'react-native';
 import theme from '../theme';
 import Text from './Text';
+import { Link } from 'react-router-native';
 
 const styles = StyleSheet.create({
     container: {
@@ -13,12 +14,14 @@ const styles = StyleSheet.create({
     }
 });
 
-const AppBarTab = ({ title }) => {
+const AppBarTab = ({ title, link }) => {
     return (
         <Pressable>
-            <View style={styles.container}>
-                <Text style={styles.text} fontWeight="bold">{title}</Text>
-            </View>
+            <Link to={link}>
+                <View style={styles.container}>
+                    <Text style={styles.text} fontWeight="bold">{title}</Text>
+                </View>
+            </Link>
         </Pressable>
     );
 };

@@ -9,12 +9,10 @@ const LanguageBadge = ({ language }) => {
         container: {
             marginTop: 20,
             padding: 10,
-            width: 150,
             textAlign: 'center',
-            textAlignVertical: 'center',
-            justifyContent: 'center',
             backgroundColor: theme.colors.languageBadgeBg,
-            borderRadius: 10
+            borderRadius: 10,
+            alignSelf: 'flex-start'
         },
         text: {
             color: theme.colors.languageBadgeText
