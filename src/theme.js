@@ -6,7 +6,8 @@ const theme = {
         appBarBg: '#24292e',
         appBarText: '#FFFFFF',
         languageBadgeText: '#FFFFFF',
-        languageBadgeBg: '#4169E1'
+        languageBadgeBg: '#4169E1',
+        textInputBorder: '#CDCDCD'
     },
     fontSizes: {
         body: 14,

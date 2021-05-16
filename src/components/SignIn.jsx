@@ -1,9 +1,37 @@
-import React from 'react';
+import React from "react";
+import { Formik } from "formik";
+import * as yup from "yup";
+import SignInForm from "./SignInForm";
 
-import Text from './Text';
+const validationSchema = yup.object().shape({
+    username: yup.string().required("username is required"),
+    password: yup.string().required("password is required"),
+});
+
+const initialValues = {
+    username: "",
+    password: "",
+};
+
+export const SignInContainer = ({ onSubmit }) => {
+    return (
+        <Formik
+            initialValues={initialValues}
+            onSubmit={onSubmit}
+            validationSchema={validationSchema}
+        >
+            {({ handleSubmit }) => <SignInForm onSubmit={handleSubmit} />}
+        </Formik>
+    );
+};
 
 const SignIn = () => {
-    return <Text>The sign in view</Text>;
+
+    const onSubmit = (values) => {
+        console.log(values);
+    };
+
+    return <SignInContainer onSubmit={onSubmit} />;
 };
 
 export default SignIn;
