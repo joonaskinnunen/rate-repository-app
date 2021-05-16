@@ -24,7 +24,7 @@ const SignInForm = ({ onSubmit }) => {
                 placeholder='Password'
                 secureTextEntry
             />
-            <Button onSubmit={onSubmit} title="Sign in" style={styles.button}>Sign in</Button>
+            <Button onPress={onSubmit} title="Sign in" style={styles.button}>Sign in</Button>
         </View>
     );
 };

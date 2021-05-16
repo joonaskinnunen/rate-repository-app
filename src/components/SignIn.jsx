@@ -13,7 +13,11 @@ const initialValues = {
     password: "",
 };
 
-export const SignInContainer = ({ onSubmit }) => {
+const SignIn = () => {
+    const onSubmit = (values) => {
+        console.log(values);
+    };
+
     return (
         <Formik
             initialValues={initialValues}
@@ -23,15 +27,6 @@ export const SignInContainer = ({ onSubmit }) => {
             {({ handleSubmit }) => <SignInForm onSubmit={handleSubmit} />}
         </Formik>
     );
-};
-
-const SignIn = () => {
-
-    const onSubmit = (values) => {
-        console.log(values);
-    };
-
-    return <SignInContainer onSubmit={onSubmit} />;
 };
 
 export default SignIn;
