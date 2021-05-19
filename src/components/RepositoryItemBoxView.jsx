@@ -20,10 +20,12 @@ const RepositoryItemBoxView = ({ title, value }) => {
         return newValue;
     };
 
+    const testID = title.toLowerCase();
+
     return (
         <View style={styles.container}>
             <Text fontSize="subheading" fontWeight="bold" style={styles.text}>{title}</Text>
-            <Text fontSize="subheading"  style={styles.text}>{parseValue(value)}</Text>
+            <Text fontSize="subheading" style={styles.text} testID={testID}>{parseValue(value)}</Text>
         </View>
     );
 };

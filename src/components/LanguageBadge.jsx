@@ -21,7 +21,7 @@ const LanguageBadge = ({ language }) => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>{language}</Text>
+            <Text style={styles.text} testID="language">{language}</Text>
         </View>
     );
 };

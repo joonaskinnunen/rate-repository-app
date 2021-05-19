@@ -41,8 +41,8 @@ const RepositoryItem = ({ item }) => {
             <View style={styles.row}>
                 <Image source={{ uri: ownerAvatarUrl }} style={styles.avatar} />
                 <View style={styles.column}>
-                    <Text fontSize="subheading" fontWeight="bold">{fullName}</Text>
-                    <Text fontSize="subheading">{description}</Text>
+                    <Text fontSize="subheading" fontWeight="bold" testID="name">{fullName}</Text>
+                    <Text fontSize="subheading" testID="description">{description}</Text>
                 </View>
             </View>
             <LanguageBadge language={language} />
