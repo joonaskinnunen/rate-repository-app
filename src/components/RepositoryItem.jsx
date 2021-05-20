@@ -3,8 +3,11 @@ import { View, Image, StyleSheet } from 'react-native';
 import Text from './Text';
 import RepositoryItemBoxView from './RepositoryItemBoxView';
 import LanguageBadge from './LanguageBadge';
+import Button from './Button';
+import * as Linking from 'expo-linking';
+import theme from '../theme';
 
-const RepositoryItem = ({ item }) => {
+const RepositoryItem = ({ item, isSingleView }) => {
 
     const styles = StyleSheet.create({
         container: {
@@ -22,6 +25,12 @@ const RepositoryItem = ({ item }) => {
             width: 50,
             height: 50,
             marginRight: 20
+        },
+        button: {
+            backgroundColor: theme.colors.primary,
+      borderColor: 'red',
+      borderWidth: 5,
+      borderRadius: 15 
         }
     });
 
@@ -34,7 +43,12 @@ const RepositoryItem = ({ item }) => {
         ratingAverage,
         reviewCount,
         ownerAvatarUrl,
+        url
     } = item;
+
+    const handlePress = () => {
+        Linking.openURL(url);
+      };
 
     return (
         <View style={styles.container}>
@@ -52,6 +66,7 @@ const RepositoryItem = ({ item }) => {
                 <RepositoryItemBoxView title="Reviews" value={reviewCount} />
                 <RepositoryItemBoxView title="Rating" value={ratingAverage} />
             </View>
+            {isSingleView && <Button onSubmit={handlePress} buttonText="Open in GitHub"></Button>}
         </View>
 
     );

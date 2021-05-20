@@ -10,7 +10,8 @@ const theme = {
         languageBadgeText: '#FFFFFF',
         languageBadgeBg: '#4169E1',
         textInputBorder: '#CDCDCD',
-        error: '#d73a4a'
+        error: '#d73a4a',
+        buttonText: '#FFFFFF'
     },
     fontSizes: {
         body: 14,

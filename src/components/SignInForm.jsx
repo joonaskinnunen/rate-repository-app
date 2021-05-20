@@ -18,13 +18,15 @@ const SignInForm = ({ onSubmit }) => {
             <FormikTextInput
                 name='username'
                 placeholder='Username'
+                testID='signInUsername'
             />
             <FormikTextInput
                 name='password'
                 placeholder='Password'
                 secureTextEntry
+                testID='signInPassword'
             />
-            <Button onPress={onSubmit} title="Sign in" style={styles.button}>Sign in</Button>
+            <Button onPress={onSubmit} title="Sign in" style={styles.button} testID="signInButton">Sign in</Button>
         </View>
     );
 };
