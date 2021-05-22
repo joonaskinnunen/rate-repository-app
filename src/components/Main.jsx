@@ -5,6 +5,7 @@ import SingleRepositoryView from './SingleRepositoryView';
 import AppBar from './AppBar';
 import { Route, Switch } from 'react-router-native';
 import SignIn from './SignIn';
+import ReviewForm from './ReviewForm';
 
 const styles = StyleSheet.create({
     container: {
@@ -26,6 +27,9 @@ const Main = () => {
                 </Route>
                     <Route path="/repository/:id" exact>
                     <SingleRepositoryView />
+                </Route>
+                <Route path="/review-form" exact>
+                    <ReviewForm/>
                 </Route>
             </Switch>
         </View>

@@ -34,11 +34,16 @@ const AppBar = () => {
         history.push('/');
     };
 
+    const goToCreateReview = () => {
+        history.push(`/review-form`);    
+    };
+
     return (
         <View style={styles.container}>
             <ScrollView horizontal={true} style={styles.scrollView}>
                 <AppBarTab title="Repositories" link="/" />
                 {authorizedUser != null ? <AppBarTab title="Sign out" onPress={signOut} /> : <AppBarTab title="Sign in" link="/signin" />}
+                {authorizedUser != null && <AppBarTab title="Create a review" onPress={goToCreateReview} />}
             </ScrollView>
         </View>
     );
