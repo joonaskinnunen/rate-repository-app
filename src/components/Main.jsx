@@ -6,6 +6,7 @@ import AppBar from './AppBar';
 import { Route, Switch } from 'react-router-native';
 import SignIn from './SignIn';
 import ReviewForm from './ReviewForm';
+import SignUp from './SignUp';
 
 const styles = StyleSheet.create({
     container: {
@@ -30,6 +31,9 @@ const Main = () => {
                 </Route>
                 <Route path="/review-form" exact>
                     <ReviewForm/>
+                </Route>
+                <Route path="/sign-up" exact>
+                    <SignUp/>
                 </Route>
             </Switch>
         </View>

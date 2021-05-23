@@ -1,14 +1,11 @@
 import React from "react";
-import { View, StyleSheet, Button } from "react-native";
+import { View, StyleSheet } from "react-native";
+import Button from './Button';
 import FormikTextInput from "./FormikTextInput";
-import theme from '../theme';
 
 const styles = StyleSheet.create({
     container: {
         padding: 20,
-    },
-    button: {
-        color: theme.colors.primary,
     }
 });
 
@@ -26,7 +23,7 @@ const SignInForm = ({ onSubmit }) => {
                 secureTextEntry
                 testID='signInPassword'
             />
-            <Button onPress={onSubmit} title="Sign in" style={styles.button} testID="signInButton">Sign in</Button>
+            <Button onSubmit={onSubmit} buttonText="Sign in" testID="signInButton">Sign in</Button>
         </View>
     );
 };

@@ -25,10 +25,8 @@ const AppBar = () => {
     const authStorage = useAuthStorage();
     const history = useHistory();
     const { authorizedUser } = useAuthorizedUser();
-    console.log(authorizedUser);
 
     const signOut = async () => {
-        console.log("sign out called");
         await authStorage.removeAccessToken();
         await apolloClient.resetStore();
         history.push('/');
@@ -38,12 +36,17 @@ const AppBar = () => {
         history.push(`/review-form`);    
     };
 
+    const goToSignUp = () => {
+        history.push(`/sign-up`);    
+    };
+
     return (
         <View style={styles.container}>
             <ScrollView horizontal={true} style={styles.scrollView}>
                 <AppBarTab title="Repositories" link="/" />
                 {authorizedUser != null ? <AppBarTab title="Sign out" onPress={signOut} /> : <AppBarTab title="Sign in" link="/signin" />}
                 {authorizedUser != null && <AppBarTab title="Create a review" onPress={goToCreateReview} />}
+                {authorizedUser == null && <AppBarTab title="Sign up" onPress={goToSignUp} />}
             </ScrollView>
         </View>
     );
