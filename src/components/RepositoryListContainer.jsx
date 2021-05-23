@@ -1,9 +1,9 @@
 import React from 'react';
 import { FlatList, Pressable, View, StyleSheet } from 'react-native';
 import RepositoryItem from './RepositoryItem';
-import { useHistory } from 'react-router-native';
 import ItemSeparator from './ItemSeparator';
 import { Picker } from '@react-native-picker/picker';
+import { Searchbar } from 'react-native-paper';
 
 const OrderMenu = ({ orderBy, setOrderBy }) => {
 
@@ -24,23 +24,31 @@ const OrderMenu = ({ orderBy, setOrderBy }) => {
     );
 };
 
-const RepositoryListContainer = ({repositoryNodes, setOrderBy, orderBy} ) => {
+export class RepositoryListContainer extends React.Component {
 
-    const history = useHistory();
+    renderHeader = () => {
+        const {orderBy, setOrderBy, searchWord, setSearchWord} = this.props;
 
-    const goToRepository = (id) => {
-        console.log(`go to: /repository/${id}`);
-        history.push(`/repository/${id}`);
-    };
+        return (
+            <><OrderMenu orderBy={orderBy} setOrderBy={setOrderBy} />
+            <Searchbar placeholder='Search' value={searchWord} onChangeText={x => setSearchWord(x)} />
+            </>
+        );
+      };
+      
+    render() {
 
+        const {repositoryNodes, goToRepository} = this.props;
+    
     return (
         <FlatList
             data={repositoryNodes}
             ItemSeparatorComponent={ItemSeparator}
             renderItem={({ item }) => <Pressable onPress={() => goToRepository(item.id)}><RepositoryItem item={item} /></Pressable>}
-            ListHeaderComponent={() => <OrderMenu orderBy={orderBy} setOrderBy={setOrderBy} />}
+            ListHeaderComponent={this.renderHeader}
         />
     );
-};
+}
+}
 
 export default RepositoryListContainer;
