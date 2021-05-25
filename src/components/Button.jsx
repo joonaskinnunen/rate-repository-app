@@ -13,9 +13,9 @@ const styles = StyleSheet.create({
     }
 });
 
-const Button = ({ onSubmit, buttonText }) => {
+const Button = ({ onSubmit, buttonText, isRed }) => {
     return <Pressable onPress={onSubmit}>
-        <View style={styles.button}>
+        <View style={[styles.button, isRed ? {backgroundColor: '#FF0000'} : {backgroundColor: theme.colors.primary}]}>
             <Text color='buttonText' align='center' fontWeight='bold' fontSize='subheading'>{buttonText}</Text>
         </View>
     </Pressable>;

@@ -40,12 +40,17 @@ const AppBar = () => {
         history.push(`/sign-up`);    
     };
 
+    const goToMyReviews = () => {
+        history.push(`/my-reviews`);    
+    };
+
     return (
         <View style={styles.container}>
             <ScrollView horizontal={true} style={styles.scrollView}>
                 <AppBarTab title="Repositories" link="/" />
                 {authorizedUser != null ? <AppBarTab title="Sign out" onPress={signOut} /> : <AppBarTab title="Sign in" link="/signin" />}
                 {authorizedUser != null && <AppBarTab title="Create a review" onPress={goToCreateReview} />}
+                {authorizedUser != null && <AppBarTab title="My reviews" onPress={goToMyReviews} />}
                 {authorizedUser == null && <AppBarTab title="Sign up" onPress={goToSignUp} />}
             </ScrollView>
         </View>

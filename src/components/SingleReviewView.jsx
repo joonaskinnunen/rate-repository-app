@@ -8,11 +8,11 @@ import { FlatList } from 'react-native';
 import ItemSeparator from './ItemSeparator';
 import Text from './Text';
 
-const SingleRepositoryView = () => {
+const SingleReviewView = () => {
     const {id} = useParams();
     console.log(id);
     const {repository} = useRepository(id);
-    const { reviews, fetchMore } = useReviews({ id: id, first: 5 });
+    const { reviews, fetchMore } = useReviews({ id: id, first: 2 });
 
     console.log(reviews);
 
@@ -31,14 +31,14 @@ const SingleRepositoryView = () => {
     <FlatList
       data={reviewNodes}
       ItemSeparatorComponent={ItemSeparator}
-      onEndReached={onEndReach}
-      onEndReachedThreshold={ 0.5 }
       renderItem={({ item }) => <ReviewItem review={item} />}
       keyExtractor={({ id }) => id}
       ListHeaderComponent={() => <RepositoryInfo repository={repository}
+      onEndReach={ onEndReach }
+      onEndReachedThreshold={ 0.5 }
       />
     }
     /> : <Text>...</Text>;
 };
 
-export default SingleRepositoryView;
+export default SingleReviewView;

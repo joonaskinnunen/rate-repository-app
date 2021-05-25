@@ -7,6 +7,7 @@ import { Route, Switch } from 'react-router-native';
 import SignIn from './SignIn';
 import ReviewForm from './ReviewForm';
 import SignUp from './SignUp';
+import MyReviews from './MyReviews';
 
 const styles = StyleSheet.create({
     container: {
@@ -31,6 +32,9 @@ const Main = () => {
                 </Route>
                 <Route path="/review-form" exact>
                     <ReviewForm/>
+                </Route>
+                <Route path="/my-reviews" exact>
+                    <MyReviews/>
                 </Route>
                 <Route path="/sign-up" exact>
                     <SignUp/>

@@ -27,28 +27,31 @@ const OrderMenu = ({ orderBy, setOrderBy }) => {
 export class RepositoryListContainer extends React.Component {
 
     renderHeader = () => {
-        const {orderBy, setOrderBy, searchWord, setSearchWord} = this.props;
+        const { orderBy, setOrderBy, searchWord, setSearchWord } = this.props;
 
         return (
-            <><OrderMenu orderBy={orderBy} setOrderBy={setOrderBy} />
-            <Searchbar placeholder='Search' value={searchWord} onChangeText={x => setSearchWord(x)} />
+            <>
+                <Searchbar placeholder='Search' value={searchWord} onChangeText={x => setSearchWord(x)} />
+                <OrderMenu orderBy={orderBy} setOrderBy={setOrderBy} />
             </>
         );
-      };
-      
+    };
+
     render() {
 
-        const {repositoryNodes, goToRepository} = this.props;
-    
-    return (
-        <FlatList
-            data={repositoryNodes}
-            ItemSeparatorComponent={ItemSeparator}
-            renderItem={({ item }) => <Pressable onPress={() => goToRepository(item.id)}><RepositoryItem item={item} /></Pressable>}
-            ListHeaderComponent={this.renderHeader}
-        />
-    );
-}
+        const { repositoryNodes, goToRepository, onEndReach } = this.props;
+
+        return (
+            <FlatList
+                data={repositoryNodes}
+                ItemSeparatorComponent={ItemSeparator}
+                renderItem={({ item }) => <Pressable onPress={() => goToRepository(item.id)}><RepositoryItem item={item} /></Pressable>}
+                ListHeaderComponent={this.renderHeader}
+                onEndReached={onEndReach}
+                onEndReachedThreshold={0.5}
+            />
+        );
+    }
 }
 
 export default RepositoryListContainer;
